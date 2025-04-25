@@ -1,0 +1,693 @@
+/* General styles */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 1.2px;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.home-page {
+    background-color: #0a2c0c; /* Dunkelgrün, kann angepasst werden */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #1b5e20, #ffd600);
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    width: 16rem;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: 6px; /* Schmaler für dezenteres Design */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffd600;
+    border-radius: 6px;
+    min-height: 40px; /* Etwas kleinere Mindesthöhe */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffcc00;
+}
+
+
+
+/* Navigation styles */
+.nav-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 34px;
+    z-index: 1100;
+}
+
+.nav-toggle .bar {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    border-radius: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #1b5e20;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+.nav-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+
+.nav-menu ul li {
+    margin: 8px 0;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+    display: block;
+    padding: 10px;
+}
+
+.nav-menu ul li a:hover {
+    color: #ffd600;
+}
+
+.nav-menu img {
+    width: 2rem;
+    height: 2rem;
+    filter: grayscale(1) brightness(1);
+    transition: filter 0.3s ease-in-out;
+}
+
+.nav-menu img:hover {
+    filter: grayscale(1) brightness(0) sepia(1) hue-rotate(40deg) saturate(5);
+}
+
+.nav-menu.active {
+    transform: translateX(0);
+}
+
+.nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 5px;
+    height: 4rem;
+    font-size: 1.1rem;
+    background: linear-gradient(90deg, #1b5e20, #ffd600);
+    color: #f9f9f9;
+    font-weight: 600;
+    margin-top: auto;
+}
+
+footer a {
+    color: inherit;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: #ffd600;
+}
+
+/* Hero-Bereich */
+.title {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem; /* Vergrößert */
+    margin-top: 40px;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+    text-transform: uppercase;
+
+    /* Neon Effekt */
+    text-shadow: 
+        0 0 10px #fff,
+        0 0 20px #ffd600,
+        0 0 30px #1b5e20,
+        0 0 40px #1b5e20,
+        0 0 50px #1b5e20;
+}
+
+.event-date {
+    text-align: center;
+    font-size: 5rem; /* Vergrößert */
+    font-weight: bold;
+    color: #ffd600;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.location {
+    text-align: center;
+    font-size: 2.5rem; /* Etwas größer */
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Logo & Jahr */
+.logo-year {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.logo-year img {
+    max-width: 70vh;
+    opacity: 0;
+    animation: fadeInZoom 1.5s ease-in-out forwards;
+    
+}
+
+/* Lineup-Bereich */
+.lineup {
+    text-align: center;
+    display: inline-block;  /* Verhält sich wie ein Inline-Element */
+    font-size: 5rem; /* Größer für bessere Lesbarkeit */
+    font-weight: bold;
+    color: #fff;
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 1.5s ease-in-out forwards;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none;  /* Entfernt die Unterstreichung */
+}
+
+
+/* Layout-Bereich */
+.layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Mehr Abstand */
+    margin-top: 40px;
+    flex-wrap: wrap; /* Falls auf kleineren Geräten nötig */
+}
+
+.amp img {
+    width: 600px; /* Verstärker vergrößert */
+    filter: drop-shadow(0 0 15px #ffd600);
+    animation: fadeIn 2s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+
+.kollekte img {
+    width: 150px; 
+    filter: drop-shadow(0 0 15px #ffd600);
+    animation: fadeIn 2s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* Sidenote mittig zentrieren */
+.sidenote {
+    display: flex;
+    justify-content: center; /* Horizontale Zentrierung */
+    width: 100%; /* Volle Breite, damit Flexbox wirkt */
+    margin-top: 20px; /* Optional: Abstand nach oben */
+    margin-bottom: 20px; /* Optional: Abstand nach oben */
+    animation: fadeIn 2s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Bild innerhalb der Sidenote */
+.sidenote img {
+    max-width: 90%; /* Damit es sich anpasst */
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.amp img:hover,
+.kollekte img:hover {
+    transform: scale(1.1);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    font-size: 1.5rem; /* Etwas größer */
+    font-style: italic;
+    margin-top: 50px;
+    color: #ffd600;
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+/* Animationen */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Lineup Content*/
+.lineup-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 5rem;
+}
+
+.lineup-title {
+    margin: 10px auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.lineup-title:hover {
+    animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(2deg); }
+    50% { transform: rotate(-2deg); }
+    75% { transform: rotate(2deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.lineup-title:hover {
+    animation: shake 0.3s ease-in-out;
+}
+
+
+.lineup-act {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin: 20px auto;  /* Zentriert */
+    border-radius: 10px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    max-width: 700px; /* Begrenzung der Breite */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Spieltag-Titel */
+.spieltag {
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 30px;
+    color: #ffd600;
+}
+
+/* Bandbild mit festem 4:3-Seitenverhältnis */
+.band-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Fixes 4:3 Seitenverhältnis */
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #222; /* Fallback-Hintergrund */
+}
+
+.band-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Bild wird im 4:3-Rahmen angepasst */
+    filter: grayscale(50%);
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.band-image:hover {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Container für Bandname und Spielzeit */
+.band-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+    padding: 0 10px;
+}
+
+/* Bandname größer */
+.band-header h2 {
+    font-size: 3rem;
+    color: #ffd600;
+    margin: 0;
+    flex: 1; /* Damit der Name flexibel bleibt */
+    text-align: left;
+}
+
+/* Spielzeit rechts ausrichten */
+.band-header .spielzeit {
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: right;
+    min-width: 130px;
+}
+
+.lineup-act p {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+/* Band-Beschreibung Container */
+.band-description-container {
+    position: relative;
+    overflow: hidden;
+    max-height: 60px; /* Anfangs nur wenige Zeilen sichtbar */
+    transition: max-height 0.4s ease-in-out;
+}
+
+/* Stil für die Band-Beschreibung */
+.band-description {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 1.5;
+    color: #ddd;
+}
+
+/* Vollständig sichtbare Beschreibung */
+.band-description-container.expanded {
+    max-height: 700px; /* Genug Platz für lange Texte */
+}
+
+/* Mehr lesen Button */
+.read-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.read-more-btn:hover {
+    color: #ffcc00;
+}
+
+/* Pfeil-Symbol für den Button */
+.read-more-btn .arrow {
+    margin-left: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Pfeil dreht sich, wenn der Text ausgeklappt ist */
+.band-description-container.expanded + .read-more-btn .arrow {
+    transform: rotate(180deg);
+}
+
+/* Video-Wrapper */
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Info-Seite Styling */
+.info-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.info-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(255, 214, 0, 0.3);
+}
+
+.info-box h2 {
+    font-size: 2rem;
+    color: #ffd600;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.info-box p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.info-warning {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.info-highlight {
+    color: #ffd600;
+    font-weight: bold;
+}
+
+/* Button Styling */
+.button {
+    display: inline-block;
+    padding: 12px 18px;
+    margin-top: 10px;
+    background: #ffd600;
+    color: #000;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #ffcc00;
+}
+
+/* Map Container */
+.map-container {
+    margin-top: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.contact-page {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: left;
+}
+
+.contact-page h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ffd600;
+    padding-bottom: 10px;
+}
+
+.contact-section {
+    margin-bottom: 30px;
+}
+
+.contact-section h2 {
+    font-size: 1.5rem;
+    color: #ffd600;
+    margin-bottom: 10px;
+    border-left: 4px solid #ffd600;
+    padding-left: 10px;
+}
+
+.contact-section p {
+    font-family: Arial, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+.contact-section a {
+    color: #ffd600;
+    font-family: 'Bebas Neue', sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-section a:hover {
+    text-decoration: underline;
+}
+
+.social-icon {
+    width: 24px; /* Größe des Icons */
+    height: auto;
+    vertical-align: middle; /* Richtet das Icon optisch aus */
+    margin-right: 8px; /* Abstand zwischen Icon und Text */
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .title {
+        font-size: 1rem; /* Kleinere Titelgröße */
+    }
+
+    .nav-menu {
+        width: 200px;
+    }
+    
+    .lineup-container {
+        padding: 10px;
+        font-size: 2rem; /* Schriftgröße reduzieren */
+    }
+
+    .lineup-title {
+        font-size: 3rem; /* Kleinere Titelgröße */
+    }
+
+    .lineup-act h2 {
+        font-size: 1.8rem;
+    }
+
+    .lineup-act p {
+        font-size: 1rem;
+    }
+
+    .event-date {
+        font-size: 2rem;
+    }
+
+    .location {
+        font-size: 1rem;
+    }
+
+    .logo-year img {
+        max-width: 90%;
+    }
+
+    .layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .lineup {
+        font-size: 1.8rem; /* Etwas kleiner */
+        padding: 10px;
+    }
+
+    .amp img {
+        width: 300px; /* Etwas kleiner für bessere Mobilanzeige */
+    }
+
+    .kollekte img {
+        width: 150px; /* Etwas kleiner für bessere Mobilanzeige */
+    }
+
+    .sidenote img {
+        width: 400px; /* Etwas kleiner für bessere Mobilanzeige */
+    }
+    .footer {
+        font-size: 1.3rem;
+    }
+}
