@@ -251,6 +251,10 @@ footer a:hover {
     flex-wrap: wrap; /* Falls auf kleineren Geräten nötig */
 }
 
+.amp, .kollekte {
+    overflow: visible;
+}
+
 .amp img {
     width: 600px; /* Verstärker vergrößert */
     filter: drop-shadow(0 0 15px #ffd600);
