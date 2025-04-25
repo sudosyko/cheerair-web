@@ -253,6 +253,7 @@ footer a:hover {
 
 .amp, .kollekte {
     overflow: visible;
+    display: inline-block; /* Hilft manchmal zusätzlich bei mobilen Bugs */
 }
 
 .amp img {
