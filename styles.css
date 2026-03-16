@@ -1,25 +1,45 @@
 /* General styles */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+:root {
+    /* --- Neues Farbkonzept basierend auf dem Flyer 2026 --- */
+    
+    /* Hauptakzentfarben */
+    --color-primary: #00e5ff;          /* Neon-Türkis (vom Adler-Grafikelement) */
+    --color-primary-hover: #1de9b6;    /* Türkis-Hover-Status */
+    --color-secondary: #ff00ff;        /* Radiant Magenta/Fuchsia (vom CHEERAIR Text) */
+    
+    /* Hintergrundfarben */
+    --color-bg-dark: #12005e;         /* Tiefes Indigo-Blau (Hintergrundgrundlage) */
+    --color-bg-light: #2c1d8d;        /* Helleres Indigo-Blau */
+    
+    /* Navigation und Footer */
+    --color-nav-gradient-start: var(--color-secondary); /* Magenta */
+    --color-nav-gradient-end: var(--color-primary);   /* Türkis */
+    
+    /* Textfarben */
+    --color-text-white: #fff;           /* Text Weiss */
+    --color-text-contrast: #000;       /* Kontrasttext */
+}
 
 body {
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: 1.2px;
     margin: 0;
     padding: 0;
-    background-color: #000;
-    color: #fff;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-white);
     overflow-x: hidden;
 }
 
 .home-page {
-    background-color: #0a2c0c; /* Dunkelgrün, kann angepasst werden */
+    background-color: var(--color-bg-dark); /* Homogener Hintergrund */
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, #1b5e20, #ffd600);
+    background: linear-gradient(90deg, var(--color-nav-gradient-start), var(--color-nav-gradient-end));
     padding: 1rem 2rem;
     position: relative;
     z-index: 1000;
@@ -42,22 +62,19 @@ header {
 }
 
 /* Scrollbar */
-
 ::-webkit-scrollbar {
-    width: 6px; /* Schmaler für dezenteres Design */
+    width: 6px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #ffd600;
+    background: var(--color-primary);
     border-radius: 6px;
-    min-height: 40px; /* Etwas kleinere Mindesthöhe */
+    min-height: 40px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #ffcc00;
+    background: var(--color-primary-hover);
 }
-
-
 
 /* Navigation styles */
 .nav-toggle {
@@ -87,7 +104,7 @@ header {
     right: 0;
     height: 100%;
     width: 250px;
-    background-color: #1b5e20;
+    background-color: var(--color-bg-light); 
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
     display: flex;
@@ -120,7 +137,7 @@ header {
 }
 
 .nav-menu ul li a:hover {
-    color: #ffd600;
+    color: var(--color-secondary);
 }
 
 .nav-menu img {
@@ -131,7 +148,7 @@ header {
 }
 
 .nav-menu img:hover {
-    filter: grayscale(1) brightness(0) sepia(1) hue-rotate(40deg) saturate(5);
+    filter: grayscale(1) brightness(0) sepia(1) hue-rotate(-55deg) saturate(10);
 }
 
 .nav-menu.active {
@@ -150,59 +167,57 @@ header {
     transform: translateY(-10px) rotate(-45deg);
 }
 
-/* Footer – flexibel bei Zeilenumbruch, gleich viel Rand oben & unten */
+/* Footer */
 footer {
   text-align: center;
-  padding-block: 12px;           /* gleich viel oben & unten */
+  padding-block: 12px;
   padding-inline: 16px;
-  height: auto;                  /* erlaubt wachsen bei 2 Zeilen */
-  min-height: 4rem;              /* Grundhoehe wie vorher */
+  height: auto;
+  min-height: 4rem;
   font-size: 1.1rem;
-  background: linear-gradient(90deg, #1b5e20, #ffd600);
+  background: linear-gradient(90deg, var(--color-nav-gradient-start), var(--color-nav-gradient-end));
   color: #f9f9f9;
   font-weight: 600;
-  margin-top: auto;              /* margin-bottom:auto entfernen */
+  margin-top: auto;
   border-top: 1px solid rgba(0,0,0,0.55);
-  border-bottom: 1px solid rgba(0,0,0,0.55);  /* Rand unten wie oben */
+  border-bottom: 1px solid rgba(0,0,0,0.55);
   box-sizing: border-box;
 }
 
-
-/* p hat Default-Margins – entfernen fuer saubere Abstaende */
 footer p { margin: 0; }
 
-/* Duplikate zusammenfassen */
 footer a {
   color: inherit;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
 }
-footer a:hover { color: #ffd600; }
+
+footer a:hover {
+    color: var(--color-primary);
+}
 
 /* Hero-Bereich */
 .title {
-    color: #fff;
+    color: var(--color-text-white);
     text-align: center;
-    font-size: 2rem; /* Vergrößert */
+    font-size: 2rem;
     margin-top: 40px;
     font-weight: bold;
     letter-spacing: 0.3rem;
     text-transform: uppercase;
-
-    /* Neon Effekt */
     text-shadow: 
-        0 0 10px #fff,
-        0 0 20px #ffd600,
-        0 0 30px #1b5e20,
-        0 0 40px #1b5e20,
-        0 0 50px #1b5e20;
+        0 0 10px var(--color-text-white),
+        0 0 20px var(--color-secondary), 
+        0 0 30px var(--color-primary),   
+        0 0 40px var(--color-primary),
+        0 0 50px var(--color-primary);
 }
 
 .event-date {
     text-align: center;
-    font-size: 5rem; /* Vergrößert */
+    font-size: 5rem;
     font-weight: bold;
-    color: #ffd600;
+    color: var(--color-primary); 
     letter-spacing: 0.2rem;
     text-transform: uppercase;
     animation: fadeIn 2s ease-in-out;
@@ -210,86 +225,86 @@ footer a:hover { color: #ffd600; }
 
 .location {
     text-align: center;
-    font-size: 2.5rem; /* Etwas größer */
-    color: #fff;
+    font-size: 2.5rem;
+    color: var(--color-secondary); 
     font-weight: bold;
     margin-bottom: 20px;
 }
 
 .logo-year {
-  margin-top: 15px;       /* kannst du auch kleiner setzen */
-  margin-bottom: 0;       /* kein Abstand nach unten */
+  margin-top: 15px;
+  margin-bottom: 0;
   display: flex;
   justify-content: center;
   animation: fadeIn 2s ease-in-out;
 }
 
-
 .logo-year img {
-  display: block;         /* vermeidet Inline-Gaps */
-  transform: translateY(6px); /* falls PNG unten transparenten Rand hat */
+  display: block;
+  transform: translateY(6px);
+  width: 100%;         
+  max-width: 400px;    
+  height: auto;        
+  filter: drop-shadow(0 0 15px var(--color-primary));
+  animation: fadeIn 2s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-year img:hover {
+    transform: scale(1.1);
 }
 
 /* Lineup-Bereich */
 .lineup {
     text-align: center;
-    display: inline-block;  /* Verhält sich wie ein Inline-Element */
-    font-size: 5rem; /* Größer für bessere Lesbarkeit */
+    display: inline-block;
+    font-size: 5rem;
     font-weight: bold;
-    color: #fff;
+    color: var(--color-text-white);
     margin-top: 30px;
     opacity: 0;
     transform: translateY(10px);
     animation: fadeInUp 1.5s ease-in-out forwards;
     transition: transform 0.3s ease-in-out;
-    text-decoration: none;  /* Entfernt die Unterstreichung */
+    text-decoration: none;
 }
-
 
 /* Layout-Bereich */
 .layout {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px; /* Mehr Abstand */
+    gap: 30px;
     margin-top: 10px;
-    flex-wrap: wrap; /* Falls auf kleineren Geräten nötig */
+    flex-wrap: wrap;
 }
 
-.amp, .kollekte {
+.kollekte {
+    margin-top: 1.5rem;
     overflow: visible;
-    display: inline-block; /* Hilft manchmal zusätzlich bei mobilen Bugs */
-}
-
-.amp img {
-    width: 600px; /* Verstärker vergrößert */
-    filter: drop-shadow(0 0 15px #ffd600);
-    animation: fadeIn 2s ease-in-out;
-    transition: transform 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
 }
 
 .kollekte img {
     width: 150px; 
-    filter: drop-shadow(0 0 15px #ffd600);
+    filter: drop-shadow(0 0 15px var(--color-secondary));
     animation: fadeIn 2s ease-in-out;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out; 
 }
 
-
-/* Sidenote mittig zentrieren */
 .sidenote {
     display: flex;
-    justify-content: center; /* Horizontale Zentrierung */
-    width: 100%; /* Volle Breite, damit Flexbox wirkt */
-    margin-top: 20px; /* Optional: Abstand nach oben */
-    margin-bottom: 20px; /* Optional: Abstand nach oben */
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     animation: fadeIn 2s ease-in-out;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Bild innerhalb der Sidenote */
 .sidenote img {
-    max-width: 90%; /* Damit es sich anpasst */
+    max-width: 90%;
     height: auto;
     transition: transform 0.3s ease-in-out;
 }
@@ -299,25 +314,40 @@ footer a:hover { color: #ffd600; }
     transform: scale(1.1);
 }
 
-/* Footer */
+/* --- NEU: Wrapper für das Lineup Bild --- */
+.lineup-link {
+    display: block;
+    margin-top: 20px; /* Abstand oben angepasst */
+    margin-bottom: 10px; /* Abstand unten angepasst */
+}
+
+.lineup-pic {
+  display: block;
+  margin: 0 auto;
+  max-width: 90vw;
+  width: 900px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.lineup-pic:hover {
+  transform: scale(1.02);
+}
+
+/* Footer im Main (Hero) */
 .footer {
     text-align: center;
-    font-size: 1.5rem; /* Etwas größer */
+    font-size: 1.5rem;
     font-style: italic;
-    margin-top: 50px;
-    color: #ffd600;
+    margin-top: 15px; /* <--- Hier wurde der riesige Abstand von 50px auf 15px reduziert! */
+    color: var(--color-primary); 
     opacity: 0;
     animation: fadeIn 2s ease-in-out forwards;
 }
 
 /* Animationen */
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes fadeInUp {
@@ -356,10 +386,6 @@ footer a:hover { color: #ffd600; }
     transition: transform 0.3s ease-in-out;
 }
 
-.lineup-title:hover {
-    animation: shake 0.3s ease-in-out;
-}
-
 @keyframes shake {
     0% { transform: rotate(0deg); }
     25% { transform: rotate(2deg); }
@@ -372,44 +398,41 @@ footer a:hover { color: #ffd600; }
     animation: shake 0.3s ease-in-out;
 }
 
-
 .lineup-act {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-bg-light);
     padding: 20px;
-    margin: 20px auto;  /* Zentriert */
+    margin: 20px auto;
     border-radius: 10px;
     text-align: left;
     position: relative;
     overflow: hidden;
-    max-width: 700px; /* Begrenzung der Breite */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 700px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Spieltag-Titel */
 .spieltag {
     text-align: center;
     font-size: 4rem;
     margin-top: 30px;
-    color: #ffd600;
+    color: var(--color-secondary);
 }
 
-/* Bandbild mit festem 4:3-Seitenverhältnis */
 .band-image-wrapper {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Fixes 4:3 Seitenverhältnis */
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #222; /* Fallback-Hintergrund */
+    background: #222;
 }
 
 .band-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Bild wird im 4:3-Rahmen angepasst */
-    filter: grayscale(50%);
+    object-fit: cover;
+    filter: grayscale(80%); 
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
@@ -418,7 +441,6 @@ footer a:hover { color: #ffd600; }
     filter: grayscale(0%);
 }
 
-/* Container für Bandname und Spielzeit */
 .band-header {
     display: flex;
     justify-content: space-between;
@@ -427,19 +449,17 @@ footer a:hover { color: #ffd600; }
     padding: 0 10px;
 }
 
-/* Bandname größer */
 .band-header h2 {
     font-size: 3rem;
-    color: #ffd600;
+    color: var(--color-primary); 
     margin: 0;
-    flex: 1; /* Damit der Name flexibel bleibt */
+    flex: 1;
     text-align: left;
 }
 
-/* Spielzeit rechts ausrichten */
 .band-header .spielzeit {
     font-size: 1.2rem;
-    color: #fff;
+    color: var(--color-text-white);
     text-align: right;
     min-width: 130px;
 }
@@ -449,15 +469,13 @@ footer a:hover { color: #ffd600; }
     margin: 5px 0;
 }
 
-/* Band-Beschreibung Container */
 .band-description-container {
     position: relative;
     overflow: hidden;
-    max-height: 60px; /* Anfangs nur wenige Zeilen sichtbar */
+    max-height: 60px;
     transition: max-height 0.4s ease-in-out;
 }
 
-/* Stil für die Band-Beschreibung */
 .band-description {
     font-family: 'Arial', sans-serif;
     font-size: 1rem;
@@ -466,12 +484,10 @@ footer a:hover { color: #ffd600; }
     color: #ddd;
 }
 
-/* Vollständig sichtbare Beschreibung */
 .band-description-container.expanded {
-    max-height: 700px; /* Genug Platz für lange Texte */
+    max-height: 700px;
 }
 
-/* Mehr lesen Button */
 .read-more-btn {
     display: flex;
     align-items: center;
@@ -479,27 +495,24 @@ footer a:hover { color: #ffd600; }
     margin-top: 10px;
     font-size: 1.3rem;
     font-weight: bold;
-    color: #fff;
+    color: var(--color-text-white);
     cursor: pointer;
     transition: color 0.3s ease-in-out;
 }
 
 .read-more-btn:hover {
-    color: #ffcc00;
+    color: var(--color-primary-hover);
 }
 
-/* Pfeil-Symbol für den Button */
 .read-more-btn .arrow {
     margin-left: 5px;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Pfeil dreht sich, wenn der Text ausgeklappt ist */
 .band-description-container.expanded + .read-more-btn .arrow {
     transform: rotate(180deg);
 }
 
-/* Video-Wrapper */
 .video-wrapper {
     position: relative;
     padding-bottom: 56.25%;
@@ -528,16 +541,16 @@ footer a:hover { color: #ffd600; }
 }
 
 .info-box {
-    background: rgba(255, 255, 255, 0.1);
+    background: var(--color-bg-light);
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(255, 214, 0, 0.3);
+    box-shadow: 0px 4px 10px rgba(0, 229, 255, 0.4);
 }
 
 .info-box h2 {
     font-size: 2rem;
-    color: #ffd600;
+    color: var(--color-primary); 
     margin-bottom: 10px;
     display: flex;
     align-items: center;
@@ -550,22 +563,21 @@ footer a:hover { color: #ffd600; }
 }
 
 .info-warning {
-    color: #ff6b6b;
+    color: #ff1744; 
     font-weight: bold;
 }
 
 .info-highlight {
-    color: #ffd600;
+    color: var(--color-secondary); 
     font-weight: bold;
 }
 
-/* Button Styling */
 .button {
     display: inline-block;
     padding: 12px 18px;
     margin-top: 10px;
-    background: #ffd600;
-    color: #000;
+    background: var(--color-primary); 
+    color: var(--color-text-contrast); 
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
@@ -574,17 +586,16 @@ footer a:hover { color: #ffd600; }
 }
 
 .button:hover {
-    background: #ffcc00;
+    background: var(--color-primary-hover);
 }
 
-/* Map Container */
 .map-container {
     margin-top: 15px;
     border-radius: 10px;
     overflow: hidden;
 }
 
-
+/* Kontakt-Seite */
 .contact-page {
     max-width: 600px;
     margin: 50px auto;
@@ -596,7 +607,7 @@ footer a:hover { color: #ffd600; }
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 2px solid #ffd600;
+    border-bottom: 2px solid var(--color-primary);
     padding-bottom: 10px;
 }
 
@@ -606,9 +617,9 @@ footer a:hover { color: #ffd600; }
 
 .contact-section h2 {
     font-size: 1.5rem;
-    color: #ffd600;
+    color: var(--color-primary); 
     margin-bottom: 10px;
-    border-left: 4px solid #ffd600;
+    border-left: 4px solid var(--color-primary);
     padding-left: 10px;
 }
 
@@ -620,7 +631,7 @@ footer a:hover { color: #ffd600; }
 }
 
 .contact-section a {
-    color: #ffd600;
+    color: var(--color-secondary); 
     font-family: 'Bebas Neue', sans-serif;
     text-decoration: none;
     font-weight: bold;
@@ -631,19 +642,19 @@ footer a:hover { color: #ffd600; }
 }
 
 .social-icon {
-    width: 24px; /* Größe des Icons */
+    width: 24px;
     height: auto;
-    vertical-align: middle; /* Richtet das Icon optisch aus */
-    margin-right: 8px; /* Abstand zwischen Icon und Text */
+    vertical-align: middle;
+    margin-right: 8px;
 }
 
 /* Sponsoren-Seite */
 .sponsoren-page {
   width: 100%;
   padding: 3rem 1rem;
-  background-color: #111; /* dunkler Hintergrund */
-  color: #fff;
-  overflow-x: hidden; /* verhindert horizontales Scrollen */
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-white);
+  overflow-x: hidden;
 }
 
 .sponsoren-page > section {
@@ -652,7 +663,6 @@ footer a:hover { color: #ffd600; }
   padding: 0 1rem;
 }
 
-/* Intro-Bereich */
 .sponsoren-intro {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -661,7 +671,7 @@ footer a:hover { color: #ffd600; }
 .sponsoren-intro h1 {
   font-size: 3.5rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--color-text-white);
 }
 
 .sponsoren-intro p {
@@ -671,7 +681,6 @@ footer a:hover { color: #ffd600; }
   color: #f0f0f0;
 }
 
-/* Sponsoren-Tiers */
 .sponsoren-tier {
   text-align: center;
 }
@@ -681,7 +690,7 @@ footer a:hover { color: #ffd600; }
   margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
-  color: #ffd600;
+  color: var(--color-secondary); 
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -694,24 +703,22 @@ footer a:hover { color: #ffd600; }
   transform: translateX(-50%);
   width: 50%;
   height: 3px;
-  background: #ffd600;
+  background: var(--color-primary); 
   border-radius: 3px;
 }
 
-/* Sponsoren Grid */
 .sponsoren-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem; /* Abstand zwischen Karten */
+  gap: 1rem;
 }
 
-/* Sponsoren-Karten */
 .sponsor-card {
   background: white;
   padding: 0.8rem;
   border-radius: 12px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -730,10 +737,9 @@ footer a:hover { color: #ffd600; }
 
 .sponsor-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 18px rgba(0, 229, 255, 0.5); 
 }
 
-/* Bronze Sponsoren */
 .bronze ul {
   list-style: none;
   padding: 0;
@@ -743,27 +749,26 @@ footer a:hover { color: #ffd600; }
   gap: 0.8rem;
   font-weight: 500;
   font-size: 1rem;
-  color: #fff;
+  color: var(--color-text-white);
 }
 
-/* === Sofort scrollen auf Mobile (Fix: Off-Canvas intercept) === */
+/* === Sofort scrollen auf Mobile === */
 html, body {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;         /* Scroll-Gesten priorisieren */
+  touch-action: pan-y;
 }
 
 main, header, footer, .sponsoren-page {
     box-sizing: border-box;
 }
 
-/* Menue blockiert keine Touches, solange es geschlossen ist */
 .nav-menu {
-  pointer-events: none;        /* keine Hit-Tests wenn geschlossen */
-  visibility: hidden;          /* verhindert Touch-Capture beim Laden */
+  pointer-events: none;
+  visibility: hidden;
   will-change: transform;      
-  transform: translate3d(100%,0,0);  /* GPU-Layer, Offscreen */
+  transform: translate3d(100%,0,0);
 }
 
 .nav-menu.active {
@@ -772,102 +777,69 @@ main, header, footer, .sponsoren-page {
   transform: translate3d(0,0,0);
 }
 
-
-.lineup-pic {
-  display: block;
-  margin: 0 auto 6px;  /* zieht Lineup nach oben an das Logo, unten knapper */
-  max-width: 90vw;
-  width: 900px;
-  transition: transform 0.3s ease-in-out;
-}
-
-
-.lineup-pic:hover {
-  transform: scale(1.02);
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
-
-    .lineup-pic img {
+    .lineup-pic {
         max-width: 90%;
     }
-
     .title {
-        font-size: 1rem; /* Kleinere Titelgröße */
+        font-size: 1rem;
     }
-
     .sponsoren-intro h1 {
-    font-size: 2rem;
+        font-size: 2rem;
     }
-
     .sponsoren-tier h2 {
       font-size: 1.5rem;
     }
-
     .sponsor-card {
       width: 130px;
       height: 130px;
     }
-
     .sponsor-card img {
       max-width: 100px;
       max-height: 100px;
     }
-
     .nav-menu {
         width: 200px;
     }
-    
     .lineup-container {
         padding: 10px;
-        font-size: 2rem; /* Schriftgröße reduzieren */
+        font-size: 2rem;
     }
-
     .lineup-title {
-        font-size: 3rem; /* Kleinere Titelgröße */
+        font-size: 3rem;
     }
-
     .lineup-act h2 {
         font-size: 1.8rem;
     }
-
     .lineup-act p {
         font-size: 1rem;
     }
-
     .event-date {
         font-size: 2rem;
     }
-
     .location {
         font-size: 1rem;
     }
-
     .logo-year img {
         max-width: 90%;
     }
-
     .layout {
         flex-direction: column;
         gap: 30px;
     }
-
     .lineup {
-        font-size: 1.8rem; /* Etwas kleiner */
+        font-size: 1.8rem;
         padding: 10px;
     }
-
     .amp img {
-        width: 300px; /* Etwas kleiner für bessere Mobilanzeige */
+        width: 300px;
     }
-
     .kollekte img {
-        width: 150px; /* Etwas kleiner für bessere Mobilanzeige */
+        width: 150px;
     }
-
     .sidenote img {
-        width: 400px; /* Etwas kleiner für bessere Mobilanzeige */
+        width: 400px;
     }
     .footer {
         font-size: 1.3rem;
