@@ -29,6 +29,17 @@ body {
     background-color: var(--color-bg-dark);
     color: var(--color-text-white);
     overflow-x: hidden;
+    
+    /* --- NEU: Sticky Footer Lösung --- */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Mindestens 100% der Bildschirmhöhe (Viewport Height) */
+}
+
+/* --- NEU: Der Hauptinhalt nimmt den übrigen Platz ein --- */
+main {
+    flex: 1; /* Drückt den Footer nach unten, wenn wenig Inhalt da ist */
+    width: 100%;
 }
 
 .home-page {
@@ -314,11 +325,11 @@ footer a:hover {
     transform: scale(1.1);
 }
 
-/* --- NEU: Wrapper für das Lineup Bild --- */
+/* Wrapper für das Lineup Bild */
 .lineup-link {
     display: block;
-    margin-top: 20px; /* Abstand oben angepasst */
-    margin-bottom: 10px; /* Abstand unten angepasst */
+    margin-top: 20px; 
+    margin-bottom: 10px; 
 }
 
 .lineup-pic {
@@ -338,7 +349,7 @@ footer a:hover {
     text-align: center;
     font-size: 1.5rem;
     font-style: italic;
-    margin-top: 15px; /* <--- Hier wurde der riesige Abstand von 50px auf 15px reduziert! */
+    margin-top: 15px;
     color: var(--color-primary); 
     opacity: 0;
     animation: fadeIn 2s ease-in-out forwards;
