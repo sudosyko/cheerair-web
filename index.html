@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cheerair 2025</title>
+    <meta name="description" content="Cheerair Konolfingen 2026 - Das kleine, feine Openair für Alle! Entdecke das Lineup, Infos und Tickets.">
+    <title>Cheerair 2026</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/svg+xml" href="images/Cheerair_Icon.svg">
 </head>
@@ -14,7 +20,7 @@
                 <img src="images/logo.svg" alt="Cheerair Logo">
             </a>
         </div>
-        <button class="nav-toggle" aria-label="Navigation umschalten">
+        <button class="nav-toggle" aria-label="Navigation umschalten" aria-expanded="false">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -28,24 +34,68 @@
                 <li><a href="sponsoren.html">Sponsoren</a></li>
                 <li>
                     <a href="https://www.instagram.com/cheerair_konolfingen/" target="_blank">
-                        <img src="images/instagram_logo.svg" alt="Instagram Logo">
+                        <img src="images/instagram_logo.svg" alt="Instagram Logo" loading="lazy">
                     </a>
                 </li>
             </ul>
         </nav>
     </header>
     
-
     <main>
       <div class="title">Das Cheerair Kollektiv Präsentiert:</div>
-
-      <div class="event-date">Fr. 28 & Sa. 29 August 2026</div>
+      <div class="event-date">Fr. 28 & Sa. 29 August</div>
       <div class="location">im Cheer Konolfingen!</div>
 
-      <div class="footer">🚧 Die Webseite befindet sich im Umbau! 🚧</div>
+      <div id="countdown" class="countdown-container">
+        <div class="time-box">
+            <span id="cd-days" class="time-number">00</span>
+            <span class="time-label">Tage</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-box">
+            <span id="cd-hours" class="time-number">00</span>
+            <span class="time-label">Std</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-box">
+            <span id="cd-minutes" class="time-number">00</span>
+            <span class="time-label">Min</span>
+        </div>
+        <div class="time-separator">:</div>
+        <div class="time-box">
+            <span id="cd-seconds" class="time-number">00</span>
+            <span class="time-label">Sek</span>
+        </div>
+      </div>
+
+      <div class="hero-center-group">
+          <div class="logo-year floating">
+            <img src="images/CheerAir_Sticker_26.svg" alt="Cheerair Logo">
+          </div>
+          <div class="kollekte floating-delayed">
+              <img src="images/Kollekte.png" alt="Kollekte" loading="lazy">
+          </div>
+      </div>
+      
+      <a href="lineup.html" class="lineup-link">
+        <img class="lineup-pic" src="images/Lineup.png" alt="Lineup" loading="lazy">
+      </a>
+
+      <div class="footer">Herzlich, klein und fein: Das Openair für Alle!</div>
+      
+      <div class="festival-features">
+          <span class="features-dot tl"></span>
+          <span class="features-dot tr"></span>
+          <span class="features-dot bl"></span>
+          <span class="features-dot br"></span>
+          <div class="features-shape">
+              Food / Bar / Camping & Rock n' Roll
+          </div>
+      </div>
+      </main>
 
     <footer>
-        <p>&copy; R.Waeny | 2025 Verein Cheerair Konolfingen <a href="kontakt.html">Impressum</a> |
+        <p>&copy; R.Waeny | 2026 Verein Cheerair Konolfingen <a href="kontakt.html">Impressum</a> |
             <a href="sponsoren.html">Sponsoren</a>
         </p>
     </footer>
