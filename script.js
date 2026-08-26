@@ -45,11 +45,13 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // Wir führen den Code nur aus, wenn der Countdown auch auf der Seite ist (z.B. nicht auf lineup.html)
     if (countdownElement) {
-        // Das Startdatum des Festivals (Anpassen, falls sich die Uhrzeit ändert!)
-        const countDownDate = new Date("Aug 28, 2026 16:00:00").getTime();
+        // Die Seite kann ihr eigenes Countdown-Datum festlegen.
+        const countDownDate = new Date(
+            countdownElement.dataset.countdownDate || "Aug 28, 2026 16:00:00"
+        ).getTime();
 
-        // Aktualisiere den Countdown jede Sekunde (1000 Millisekunden)
-        const x = setInterval(function() {
+        let countdownInterval;
+        const updateCountdown = function() {
             
             // Heutiges Datum und Uhrzeit
             const now = new Date().getTime();
@@ -69,11 +71,17 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("cd-minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
             document.getElementById("cd-seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
             
-            // Wenn der Countdown abgelaufen ist, zeige einen Text an
             if (distance < 0) {
-                clearInterval(x);
+                clearInterval(countdownInterval);
                 countdownElement.innerHTML = "<h2 style='color: var(--color-primary); margin: 0;'>DAS FESTIVAL LÄUFT! LET'S ROCK!</h2>";
             }
-        }, 1000);
+        };
+
+        updateCountdown();
+        countdownInterval = setInterval(updateCountdown, 1000);
+
+        if (Date.now() >= countDownDate) {
+            clearInterval(countdownInterval);
+        }
     }
 });
