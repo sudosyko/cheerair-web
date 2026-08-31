@@ -505,6 +505,161 @@ footer a:hover {
 .sponsor-card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0, 229, 255, 0.5); }
 .bronze ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; font-weight: 500; font-size: 1rem; color: var(--color-text-white); }
 
+
+/* --- NEUE SEKTIONEN: Danke-Sektion & Helden-Badges --- */
+
+/* --- Danke-Sektion --- */
+.thank-you-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color-bg-light);
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 229, 255, 0.2);
+    text-align: left;
+}
+
+.thank-you-section h2 {
+    text-align: center;
+    font-size: 3.5rem;
+    color: var(--color-text-white);
+    text-shadow: 0 0 10px var(--color-secondary);
+    margin-bottom: 10px;
+    letter-spacing: 0.2rem;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+.thank-you-intro {
+    text-align: center;
+    color: var(--color-primary);
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    letter-spacing: normal;
+}
+
+.thank-you-text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #ddd;
+    letter-spacing: normal;
+}
+
+.thank-you-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px 0;
+}
+
+.thank-you-list li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding-left: 30px;
+    position: relative;
+    color: #ddd;
+    letter-spacing: normal;
+}
+
+.thank-you-list li::before {
+    content: "⚡";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    font-size: 1.2rem;
+    color: var(--color-accent-yellow); 
+}
+
+.thank-you-highlight {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    letter-spacing: 1px;
+}
+
+.thank-you-outro {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 30px;
+    color: var(--color-text-white);
+    letter-spacing: normal;
+}
+
+.thank-you-signature {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-top: 20px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+/* --- Helden Badges & Lesbare Beschreibungen --- */
+.sponsoren-tier p.lesbar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #ddd;
+    max-width: 800px;
+    margin: 0 auto 25px auto;
+    text-transform: none;
+}
+
+.neon-tags {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px auto 50px auto;
+    max-width: 900px;
+}
+
+.neon-tags li {
+    background: rgba(0, 229, 255, 0.05); /* Sehr leichtes Cyan */
+    border: 1px solid var(--color-primary); /* Cyan Rand */
+    color: var(--color-text-white);
+    padding: 8px 18px;
+    border-radius: 6px; 
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 1.5px;
+    box-shadow: 0 0 8px rgba(0, 229, 255, 0.2);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.neon-tags li:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 0 15px var(--color-primary);
+    background: rgba(0, 229, 255, 0.2);
+    color: #fff;
+}
+
+.neon-tags.ok-team li {
+    background: rgba(255, 0, 255, 0.05);
+    border: 1px solid var(--color-secondary);
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.2);
+}
+
+.neon-tags.ok-team li:hover {
+    box-shadow: 0 0 15px var(--color-secondary);
+    background: rgba(255, 0, 255, 0.2);
+}
+
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .lineup-pic { max-width: 90%; }
@@ -541,108 +696,8 @@ footer a:hover {
     
     .features-dot.tl { left: 8px; }
     .features-dot.tr { right: 8px; }
-}
-
-/* --- Danke-Sektion --- */
-.thank-you-section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid var(--color-bg-light);
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 229, 255, 0.2);
-    text-align: left;
-}
-
-.thank-you-section h2 {
-    text-align: center;
-    font-size: 3.5rem;
-    color: var(--color-text-white);
-    text-shadow: 0 0 10px var(--color-secondary);
-    margin-bottom: 10px;
-    letter-spacing: 0.2rem;
-}
-
-.thank-you-intro {
-    text-align: center;
-    color: var(--color-primary);
-    font-family: 'Arial', sans-serif;
-    font-style: italic;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-.thank-you-text {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #ddd;
-}
-
-.thank-you-list {
-    list-style: none;
-    padding: 0;
-    margin: 30px 0;
-}
-
-.thank-you-list li {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    padding-left: 30px;
-    position: relative;
-    color: #ddd;
-}
-
-.thank-you-list li::before {
-    content: "⚡";
-    position: absolute;
-    left: 0;
-    top: 2px;
-    font-size: 1.2rem;
-    color: var(--color-accent-yellow); /* Greift das Flyer-Gelb auf */
-}
-
-.thank-you-highlight {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.6rem;
-    color: var(--color-primary);
-    letter-spacing: 1px;
-}
-
-.thank-you-outro {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 20px;
-    margin-top: 30px;
-    color: var(--color-text-white);
-}
-
-.thank-you-signature {
-    text-align: center;
-    font-size: 2rem;
-    color: var(--color-secondary);
-    margin-top: 20px;
-    letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
-}
-
-/* Responsive Anpassung für Mobile */
-@media (max-width: 768px) {
-    .thank-you-section {
-        max-width: 90%;
-        padding: 20px;
-    }
-    .thank-you-section h2 {
-        font-size: 2.5rem;
-    }
-    .thank-you-highlight {
-        font-size: 1.4rem;
-    }
+    
+    .thank-you-section { max-width: 90%; padding: 20px; }
+    .thank-you-section h2 { font-size: 2.5rem; }
+    .thank-you-highlight { font-size: 1.4rem; }
 }
